@@ -1,0 +1,11 @@
+{
+  "draw.folder.structure.exclude": [
+    "**/.git",
+    "**/node_modules",
+    "**/*.git",
+    "**/dist",
+    "**/*.next",
+    "**/.next",
+    "**/out"
+  ],
+}
