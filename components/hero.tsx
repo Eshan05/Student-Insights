@@ -34,7 +34,7 @@ function Hero() {
       ease: "power3.out",
       stagger: {
         amount: 0.8,
-        from: "right",
+        from: "random",
       },
     });
   }, []);
@@ -42,7 +42,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col items-center justify-center bg-main px-6 py-10 text-white md:py-[120px] lg:px-20"
+      className="flex flex-col items-center justify-center bg-main px-6 py-10 text-white md:py-[120px] lg:px-20 border-2 min-w-full"
     >
       <div className="flex flex-col items-center justify-center">
         {/* Hero Text */}
@@ -87,7 +87,7 @@ function Hero() {
                 className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
               />
               <h3 className="text-lg md:text-xl lg:text-2xl">
-                Expanding the Market
+                Faster Inputs
               </h3>
             </div>
             <div className="slider-item flex flex-col items-center justify-center gap-8">
@@ -97,7 +97,7 @@ function Hero() {
                 alt="Wallet"
                 className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
               />
-              <h3 className="text-lg md:text-xl lg:text-2xl">Cost-Effective</h3>
+              <h3 className="text-lg md:text-xl lg:text-2xl">Easier Management</h3>
             </div>
             <div className="slider-item flex flex-col items-center justify-center gap-8">
               <img
@@ -107,7 +107,7 @@ function Hero() {
                 className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
               />
               <h3 className="text-lg md:text-xl lg:text-2xl">
-                More Profesional
+                Quick Exports
               </h3>
             </div>
             <div className="slider-item flex flex-col items-center justify-center gap-8">
@@ -117,7 +117,7 @@ function Hero() {
                 alt="Peoples"
                 className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
               />
-              <h3 className="text-lg md:text-xl lg:text-2xl">Attract Client</h3>
+              <h3 className="text-lg md:text-xl lg:text-2xl">Collaboration</h3>
             </div>
           </div>
 
