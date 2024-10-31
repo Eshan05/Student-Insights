@@ -1,0 +1,4 @@
+- Make account on Resend. Refer [this page](https://resend.com/docs/send-with-supabase-smtp)
+- Go to project settings and set up the SMTP part (As for why [see here](https://github.com/orgs/supabase/discussions/29370))
+- This will ensure no EMAIL stuff gets in the way of development, more or less
+- Now for `pgAdmin4`, follow [this page](https://supabase.com/docs/guides/database/connecting-to-postgres#choosing-a-connection-method). (You can use table editor too but I prefer `pgAdmin4`)
