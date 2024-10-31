@@ -1,44 +1,150 @@
-import NextLogo from "./next-logo";
-import SupabaseLogo from "./supabase-logo";
+"use client";
 
-export default function Header() {
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ArrowRight } from "lucide-react";
+
+function Hero() {
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ".hero-text > *",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.5,
+      },
+    )
+      .from(".hero-cta", {
+        opacity: 0,
+        x: "-100%",
+      })
+      .from(".hero-banner", {
+        opacity: 0,
+        y: 30,
+      });
+
+    tl.from(".hero-slider-items > *", {
+      opacity: 0,
+      x: "-10",
+      ease: "power3.out",
+      stagger: {
+        amount: 0.8,
+        from: "right",
+      },
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col gap-16 items-center">
-      <div className="flex gap-8 justify-center items-center">
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SupabaseLogo />
-        </a>
-        <span className="border-l rotate-45 h-6" />
-        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-          <NextLogo />
-        </a>
+    <section
+      id="hero"
+      className="flex flex-col items-center justify-center bg-main px-6 py-10 text-white md:py-[120px] lg:px-20"
+    >
+      <div className="flex flex-col items-center justify-center">
+        {/* Hero Text */}
+        <div className="hero-text flex flex-col items-center text-center">
+          <span className="rounded-full bg-white/10 px-2 py-3 text-[10px] font-light uppercase md:px-4 md:text-sm">
+            Student Insights
+          </span>
+          <h2 className="mt-2 text-4xl font-bold md:mt-3 md:text-7xl/[76px]">
+            <span className="text-gradient">Student Tracking</span>{" "}
+            <span className="block">For Growth of Your University</span>
+          </h2>
+          <p className="mt-[14px] text-sm md:mt-6 md:text-xl px-4 md:p-1">
+            Enable yourself to be at ease when managing students,
+            <br className="hidden md:flex" />
+            &nbsp;and their progress, records and activities. Goodbye to using old <br className="hidden md:flex" />
+            spreadsheets and always asking for frustrating follow-ups.
+          </p>
+        </div>
+        {/* Hero CTA */}
+        <div className="hero-cta mt-10">
+          <a href="#contact">
+            <button className="bg-gradient-main flex h-[56px] w-[166px] items-center justify-center gap-2 rounded-full font-semibold duration-300 hover:opacity-70 md:text-lg">
+              Get Started
+              <ArrowRight size={16} />
+            </button>
+          </a>
+        </div>
       </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-      <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
-        The fastest way to build apps with{" "}
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Supabase
-        </a>{" "}
-        and{" "}
-        <a
-          href="https://nextjs.org/"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Next.js
-        </a>
-      </p>
-      <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
-    </div>
+
+      {/* Hero Banner */}
+      <div className="hero-banner relative mt-[56px] flex h-[360px] w-full flex-col items-center justify-center p-6 text-center">
+        <h3 className="z-10 text-lg font-semibold max-sm:mt-6 max-sm:w-[213px] md:text-xl xl:text-3xl">
+          Benefits For You
+        </h3>
+        <div className="relative z-10 flex h-full items-center justify-center">
+          <div className="hero-slider-items h-full w-full">
+            <div className="slider-item flex flex-col items-center justify-center gap-8">
+              <img
+                id="maximize"
+                src="/assets/icons/special-icon-maximize.svg"
+                alt="Maximize"
+                className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
+              />
+              <h3 className="text-lg md:text-xl lg:text-2xl">
+                Expanding the Market
+              </h3>
+            </div>
+            <div className="slider-item flex flex-col items-center justify-center gap-8">
+              <img
+                id="wallet"
+                src="/assets/icons/special-icon-wallet.svg"
+                alt="Wallet"
+                className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
+              />
+              <h3 className="text-lg md:text-xl lg:text-2xl">Cost-Effective</h3>
+            </div>
+            <div className="slider-item flex flex-col items-center justify-center gap-8">
+              <img
+                id="star"
+                src="/assets/icons/special-icon-star.svg"
+                alt="Star"
+                className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
+              />
+              <h3 className="text-lg md:text-xl lg:text-2xl">
+                More Profesional
+              </h3>
+            </div>
+            <div className="slider-item flex flex-col items-center justify-center gap-8">
+              <img
+                id="peoples"
+                src="/assets/icons/special-icon-peoples.svg"
+                alt="Peoples"
+                className="rounded-full bg-white p-4 outline outline-8 outline-offset-8"
+              />
+              <h3 className="text-lg md:text-xl lg:text-2xl">Attract Client</h3>
+            </div>
+          </div>
+
+          <div className="hero-slider-nav">
+            <a href="#maximize"></a>
+            <a href="#wallet"></a>
+            <a href="#star"></a>
+            <a href="#peoples"></a>
+          </div>
+        </div>
+        <div className="absolute hidden max-sm:block">
+          <img
+            src="/assets/hero-banner-mobile.png"
+            alt="Hero Banner Mobile"
+            className="h-[380px]"
+          />
+        </div>
+        <div className="absolute hidden w-full items-center justify-center sm:flex">
+          <img
+            src="/assets/hero-banner-desktop.png"
+            alt="Hero Banner Desktop"
+            className="h-[360px]"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
+
+export default Hero;
